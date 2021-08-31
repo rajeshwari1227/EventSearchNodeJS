@@ -22,12 +22,12 @@ app.use(function(req, res, next) {
 var SpotifyWebApi = require('spotify-web-api-node');
 
 var spotifyApi = new SpotifyWebApi({
-  clientId: '389016a7e6d240e8a5fee675f6582083',
-  clientSecret: '0b070e2c37f940a781772a860bd073a2',
+  clientId: 'Cliend_id',
+  clientSecret: 'client_secret',
   redirectUri: 'http://www.example.com/callback'
 });
 
-const ticketmaster_api = "wy8TIzyZC4k2uPo8jJVg2GfiyzBhNWmH"
+const ticketmaster_api = "API_KEY"
 
 
 
@@ -348,7 +348,7 @@ app.get('/eventDetails', function (req, resp) {
   // console.log(req.query.event)
   id = req.query.event
   
-  url_val = "https://app.ticketmaster.com/discovery/v2/events/"+id+"?apikey=wy8TIzyZC4k2uPo8jJVg2GfiyzBhNWmH"
+  url_val = "https://app.ticketmaster.com/discovery/v2/events/"+id+"?apikey=api"
   
   axios.get(url_val)
     .then(function (response) {
@@ -523,7 +523,7 @@ try{
 function getDataPromise(val) {
   console.log(val.replace(' ','+'))
   return axios({
-          url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+val.replace(' ','+')+'&key=AIzaSyAcSMaNFC5VFoUJPAEoPioTmkoutY7864c',
+          url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+val.replace(' ','+')+'&key=api',
           method: 'get',
           timeout: 8000,
           headers: {
@@ -580,7 +580,10 @@ console.log(req.query.keyword,radius,miles,search_cat)
 
 
 // console.log(search_cat)
-event_fetch_url = " https://app.ticketmaster.com/discovery/v2/events.json?apikey="+ticketmaster_api+"&keyword="+req.query.keyword+"&segmentId="+search_cat+"&radius="+radius+"&unit="+miles+"&geoPoint="
+event_fetch_url = " https://app.ticketmaster.com/discovery/v2/events.json?
+  
+  key="+ticketmaster_
+    +"&keyword="+req.query.keyword+"&segmentId="+search_cat+"&radius="+radius+"&unit="+miles+"&geoPoint="
 
 if(req.query.loctype == 'location'){
   location_name = req.query.location
